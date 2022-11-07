@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="adder" onsubmit="return solution();">
+        Energy<input type="text" name="txtBox1" id='txtBox1' placeholder="Energy">
+        Kg/g<input type="text" name="txtBox5" id="txtBox5" readonly placeholder="Result">Kcal<br><br>
+        CHON<input type="text" name="txtBox2" id='txtBox2' placeholder="CHON">
+        Kg/g<input type="text" name="txtBox6" id="txtBox6" readonly placeholder="Result">g<br><br>
+        kcal/kg<input type="text" name="txtBox3" id='txtBox3' placeholder="kcal/kg">
+        <input type="text" name="txtBox7" id="txtBox7" readonly placeholder="Result">kcal<br><br>
+        g/kg<input type="text" name="txtBox4" id='txtBox4' placeholder="g/kg"><br><br><br>
+        
+        
+        <input type="text" name="txtBox8" id="txtBox8" readonly placeholder="Result">kcal
+        <input type="text" name="txtBox11" id="txtBox11" readonly placeholder="Result"><br><br>
+        <input type="text" name="txtBox9" id="txtBox9" readonly placeholder="Result">g
+        <input type="text" name="txtBox12" id="txtBox12" readonly placeholder="Result"><br><br>
+        <input type="text" name="txtBox10" id="txtBox10" readonly placeholder="Result">g<br><br>
+        <input type="text" name="txtBox13" id="txtBox13" readonly placeholder="Result">Kcal
+        <input type="text" name="txtBox15" id="txtBox15" readonly placeholder="Result">g CHO<br><br>
+        <input type="text" name="txtBox14" id="txtBox14" readonly placeholder="Result">g CHON
+        <input type="text" name="txtBox16" id="txtBox16" readonly placeholder="Result">g FAT<br><br>
+        
+        <button id="btnCompute" type="button">Compute</button>
+        <button type="button" id="btnClear">Clear</button>
+    </form>
+    <script>
+        const btn = document.getElementById('btnClear');
+        const calc = document.getElementById('btnCompute');
+
+        function solution() {
+            const txtBox1 = parseFloat(document.getElementById('txtBox1').value);
+            const txtBox2 = parseFloat(document.getElementById('txtBox2').value);
+            const txtBox3 = parseFloat(document.getElementById('txtBox3').value);
+            const txtBox4 = parseFloat(document.getElementById('txtBox4').value);
+
+            const txtBox5 = document.getElementById('txtBox5');
+            const txtBox6 = document.getElementById('txtBox6');
+            const txtBox7 = document.getElementById('txtBox7');
+            const txtBox8 = document.getElementById('txtBox8');
+            const txtBox9 = document.getElementById('txtBox9');
+            const txtBox10 = document.getElementById('txtBox10');
+            const txtBox11 = document.getElementById('txtBox11');
+            const txtBox12 = document.getElementById('txtBox12');
+            const txtBox13 = document.getElementById('txtBox13');
+            const txtBox14 = document.getElementById('txtBox14');
+            const txtBox15 = document.getElementById('txtBox15');
+            const txtBox16 = document.getElementById('txtBox16');
+
+            if (txtBox1 && txtBox2 && txtBox3 && txtBox4 !== NaN) {
+                let ansBox5 = txtBox1 * txtBox3;
+                let ansBox6 = txtBox2 * txtBox4;
+                let ansBox7 = ansBox6 * 4;
+                let ansBox8 = ansBox5 - ansBox7;
+                let ansBox11 = ansBox8 * 0.70;
+                let ansBox9 = ansBox11 / 4;
+                let ansBox12 = ansBox8 * 0.30;
+                let ansBox10 = ansBox12 / 9;
+                let ansBox13 = ansBox5;
+                let ansBox14 = ansBox6;
+                let ansBox15 = ansBox9;
+                let ansBox16 = ansBox10;
+
+                txtBox5.value = ansBox5;
+                txtBox6.value = ansBox6;
+                txtBox7.value = ansBox7;
+                txtBox8.value = ansBox8;
+                txtBox9.value = ansBox9;
+                txtBox10.value = ansBox10;
+                txtBox11.value = ansBox11;
+                txtBox12.value = ansBox12;
+                txtBox13.value = ansBox13;
+                txtBox14.value = ansBox14;
+                txtBox15.value = ansBox15;
+                txtBox16.value = ansBox16;
+                return false;
+            } else {
+                alert("Input Valid Number");
+            }
+        }
+        btnCompute.addEventListener('click', () => {
+            solution();
+        });
+        btnClear.addEventListener('click', () => {
+            txtBox1.value = " ";
+            txtBox2.value = " ";
+            txtBox3.value = " ";
+            txtBox4.value = " ";
+            txtBox5.value = " ";
+            txtBox6.value = " ";
+            txtBox7.value = " ";
+            txtBox8.value = " ";
+            txtBox9.value = " ";
+            txtBox10.value = " ";
+            txtBox11.value = " ";
+            txtBox12.value = " ";
+            txtBox13.value = " ";
+            txtBox14.value = " ";
+            txtBox15.value = " ";
+            txtBox16.value = " ";
+        });
+    </script>
+</body>
+</html>
